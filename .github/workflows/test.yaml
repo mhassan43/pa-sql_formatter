@@ -30,7 +30,9 @@ jobs:
      #     zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
      - name: Test
        run: |
-         zetasql-formatter .github/to_be_formatted.sql
+         zetasql-formatter .github/to_be_formatted.sql 
+         cat .github/to_be_formatted.sql > .github/formatted.txt
+         cat .github/formatted.txt
      - name: Release
        uses: softprops/action-gh-release@v1
        if: startsWith(github.ref, 'refs/tags/')
