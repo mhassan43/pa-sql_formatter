@@ -20,10 +20,12 @@ jobs:
      #    wget https://github.com/Matts966/zetasql-formatter/releases/latest/download/zetasql-formatter_linux_x86_64.zip && sudo unzip zetasql-formatter_linux_x86_64.zip -d /usr/local/bin
      - name: update
        run: |
+          sudo apt install bazel-1.0.0
           sudo apt-get update
           sudo apt-get install --no-install-recommends -y gcc-9 g++-9
           sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 900 \
             --slave /usr/bin/g++ g++ /usr/bin/g++-9
+          bazelisk test --test_output=errors //zetasql/public:sql_formatter_test    
           sudo cp bazel-bin/zetasql/tools/zetasql-formatter/format zetasql-formatter
           zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
      - name: Test
