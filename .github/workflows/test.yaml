@@ -10,24 +10,24 @@ jobs:
          ref: ${{ github.ref }}
          fetch-depth: 0   
 
-     - name: download and unzip // might download everytime its run.
-       run: |
-         wget https://github.com/Matts966/zetasql-formatter/releases/latest/download/zetasql-formatter_linux_x86_64.zip && sudo unzip zetasql-formatter_linux_x86_64.zip -d /usr/local/bin
-     #- name: update
+     #- name: download and unzip // might download everytime its run.
      #  run: |
-     #     sudo apt-get install apt-transport-https curl gnupg
-     #     curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > bazel.gpg
-     #     sudo mv bazel.gpg /etc/apt/trusted.gpg.d/
-     #     echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
-     #     sudo apt-get update
-     #     sudo apt-get install --no-install-recommends -y gcc-9 g++-9
-     #     sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 900 \
-     #       --slave /usr/bin/g++ g++ /usr/bin/g++-9
-     #     cd /etc/apt/trusted.gpg.d/bazel.gpg
-     #     bazelisk test --test_output=errors //zetasql/public:sql_formatter_test
-     #     bazelisk build //zetasql/tools/zetasql-formatter:format 
-     #     sudo cp bazel-bin/zetasql/tools/zetasql-formatter/format zetasql-formatter
-     #     zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
+     #    wget https://github.com/Matts966/zetasql-formatter/releases/latest/download/zetasql-formatter_linux_x86_64.zip && sudo unzip zetasql-formatter_linux_x86_64.zip -d /usr/local/bin
+     - name: update
+       run: |
+          sudo apt-get install apt-transport-https curl gnupg
+          curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > bazel.gpg
+          sudo mv bazel.gpg /etc/apt/trusted.gpg.d/
+          echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y gcc-9 g++-9
+          sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 900 \
+            --slave /usr/bin/g++ g++ /usr/bin/g++-9
+          find WORKSPACE 
+          bazelisk test --test_output=errors //zetasql/public:sql_formatter_test
+          bazelisk build //zetasql/tools/zetasql-formatter:format 
+          sudo cp bazel-bin/zetasql/tools/zetasql-formatter/format zetasql-formatter
+          zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
      - name: Test
        run: |
           cd zetasql/tools/zetasql-formatter
