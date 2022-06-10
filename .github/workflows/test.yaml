@@ -9,6 +9,12 @@ jobs:
        with:
          ref: ${{ github.ref }}
          fetch-depth: 0   
+     - name: Cache
+       uses: pat-s/always-upload-cache@v3.0.1
+       with:
+         path: ~/.cache/bazel
+         key: ${{ env.cache-version }}-${{ runner.os }}-bazelisk-build-${{ hashFiles('./**') }}
+         restore-keys: ${{ env.cache-version }}-${{ runner.os }}-bazelisk-build-
      #- name: download and unzip // might download everytime its run.
      #  run: |
      #    wget https://github.com/Matts966/zetasql-formatter/releases/latest/download/zetasql-formatter_linux_x86_64.zip && sudo unzip zetasql-formatter_linux_x86_64.zip -d /usr/local/bin
@@ -18,6 +24,7 @@ jobs:
           sudo apt-get install --no-install-recommends -y gcc-9 g++-9
           sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 900 \
             --slave /usr/bin/g++ g++ /usr/bin/g++-9
+          bazelisk test --test_output=errors //zetasql/public:sql_formatter_test  
           bazelisk build //zetasql/tools/zetasql-formatter:format
           sudo cp bazel-bin/zetasql/tools/zetasql-formatter/format zetasql-formatter
           zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
@@ -40,7 +47,6 @@ jobs:
 #echo "select * from test" | zetasql-formatter
 #zetasql-formatter > formated.txt
 #cat formated.txt
-#bazelisk test --test_output=errors //zetasql/public:sql_formatter_test
 
      
          
