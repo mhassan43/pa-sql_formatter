@@ -1,1 +1,18 @@
-sss
+name: probably not gonna work
+on: [push]
+jobs:
+  sql-formatter:
+    runs-on: ubuntu-latest
+    steps:
+     - name: download and unzip // might download everytime its run.
+       run: |
+         wget https://github.com/Matts966/zetasql-formatter/releases/latest/download/zetasql-formatter_linux_x86_64.zip && sudo unzip zetasql-formatter_linux_x86_64.zip -d /usr/local/bin
+     - name: test run 
+       run: |
+         echo "select * from test" | zetasql-formatter
+         zetasql-formatter > formated.txt
+         cat formated.txt
+       
+         
+     
+     
