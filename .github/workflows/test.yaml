@@ -31,7 +31,7 @@ jobs:
      - name: Test
        run: |
          while read p; do
-           echo "$p" | zetasql-formatter >> ./github/to_be_formatted.sql
+           echo "$p" 
          done <.github/to_be_formatted.sql
      - name: Release
        uses: softprops/action-gh-release@v1
