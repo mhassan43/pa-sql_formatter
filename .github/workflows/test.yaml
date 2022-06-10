@@ -24,8 +24,8 @@ jobs:
           sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 900 \
             --slave /usr/bin/g++ g++ /usr/bin/g++-9
           touch WORKSPACE
-          bazelisk test --test_output=errors //zetasql/public:sql_formatter_test
-          bazelisk build //zetasql/tools/zetasql-formatter:format 
+          bazelisk test --test_output=errors /usr/local/bin/zetasql-formatter:sql_formatter_test
+          bazelisk build /usr/local/bin/zetasql-formatter/tools/zetasql-formatter:format 
           sudo cp bazel-bin/zetasql/tools/zetasql-formatter/format zetasql-formatter
           zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
      - name: Test
