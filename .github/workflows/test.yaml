@@ -10,9 +10,9 @@ jobs:
          ref: ${{ github.ref }}
          fetch-depth: 0   
 
-     #- name: download and unzip // might download everytime its run.
-     #  run: |
-     #    wget https://github.com/Matts966/zetasql-formatter/releases/latest/download/zetasql-formatter_linux_x86_64.zip && sudo unzip zetasql-formatter_linux_x86_64.zip -d /usr/local/bin
+     - name: download and unzip // might download everytime its run.
+       run: |
+         wget https://github.com/Matts966/zetasql-formatter/releases/latest/download/zetasql-formatter_linux_x86_64.zip && sudo unzip zetasql-formatter_linux_x86_64.zip -d /usr/local/bin
      - name: update
        run: |
           sudo apt-get install apt-transport-https curl gnupg
