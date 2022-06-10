@@ -30,16 +30,28 @@ jobs:
      #     zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
      - name: Test
        run: |
+         touch tmp.txt
          while read p; do
-           echo "$p" | zetasql-formatter
+           echo "$p" | zetasql-formatter > .github/tmp.txt
          done <.github/to_be_formatted.sql
-     - name: Release
-       uses: softprops/action-gh-release@v1
-       if: startsWith(github.ref, 'refs/tags/')
-       with:
-         files: zetasql-formatter_linux_x86_64.zip
-         prerelease: true
-         generate_release_notes: true
+         
+         cat tmp.txt > .github/to_be_formatted.sql
+         rm tmp.txt
+     #- name: Release
+     #  uses: softprops/action-gh-release@v1
+     #  if: startsWith(github.ref, 'refs/tags/')
+     #  with:
+     #    files: zetasql-formatter_linux_x86_64.zip
+     #    prerelease: true
+     #    generate_release_notes: true
+     - name: Commit and push changes
+       run: |
+         git config --global user.name "your username"
+         git config --global user.email "your email"
+
+         git add -A
+         git commit -m "commit message"
+         git push
           
           
           
