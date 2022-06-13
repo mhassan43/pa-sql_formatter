@@ -30,13 +30,16 @@ jobs:
      #     zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
      - name: Test
        run: |
-         touch tmp.txt
+         touch formated.sql
+         touch formated_2.sql
          while read p; do
-           echo "$p" | zetasql-formatter > .github/tmp.txt
-         done <.github/to_be_formatted.sql
+           echo "$p" | zetasql-formatter > .github/formated.sql
+         done <.github/tmp.txt
          
-         cat tmp.txt > .github/to_be_formatted.sql
-         rm tmp.txt
+         while read p; do
+           echo "$p" | zetasql-formatter > .github/formated_2.sql
+         done <.github/formated.sql
+         
      #- name: Release
      #  uses: softprops/action-gh-release@v1
      #  if: startsWith(github.ref, 'refs/tags/')
