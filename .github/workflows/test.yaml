@@ -34,7 +34,7 @@ jobs:
          touch formated_2.sql
          while read p; do
            echo "$p" | zetasql-formatter > .github/formated.sql
-         done <.github/tmp.txt
+         done <.github/tmp.sql
          
          while read p; do
            echo "$p" | zetasql-formatter > .github/formated_2.sql
