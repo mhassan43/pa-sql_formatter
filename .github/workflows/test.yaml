@@ -10,9 +10,10 @@ jobs:
          ref: ${{ github.ref }}
          fetch-depth: 0   
 
-     - name: download and unzip // might download everytime its run.
+     - name: download
        run: |
-         wget https://github.com/Matts966/zetasql-formatter/releases/latest/download/zetasql-formatter_linux_x86_64.zip && sudo unzip zetasql-formatter_linux_x86_64.zip -d /usr/local/bin
+         npm install sql-formatter
+
      #- name: update
      #  run: |
      #     sudo apt-get install apt-transport-https curl gnupg
@@ -30,11 +31,8 @@ jobs:
      #     zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
      - name: Test
        run: |
-         touch formated.sql
-         touch formated_2.sql
-         while read p; do
-           echo "$p" | zetasql-formatter > .github/formated.sql
-         done <.github/tmp.sql
+         sql-formatter -h
+         
          
 
          
