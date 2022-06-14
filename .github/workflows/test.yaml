@@ -14,6 +14,7 @@ jobs:
        run: |
          npm install sql-formatter
          npx sql-formatter
+         yarn add sql-formatter
 
      #- name: update
      #  run: |
