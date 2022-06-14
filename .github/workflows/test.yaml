@@ -13,6 +13,7 @@ jobs:
      - name: download
        run: |
          npm install sql-formatter
+         npx sql-formatter
 
      #- name: update
      #  run: |
