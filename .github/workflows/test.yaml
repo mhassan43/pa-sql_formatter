@@ -20,16 +20,18 @@ jobs:
 
      - name: Install
        run: |
-        npm install --global yarn
-        yarn install 
-        yarn add sql-formatter
-        npm install sql-formatter
+         yum install sql-formatter
+
         
      #- name: Test & Build
      #  run: | 
      #    yarn test
      #    yarn build
-
+     #
+     #   npm install --global yarn
+     #   yarn install 
+     #   yarn add sql-formatter
+     #   npm install sql-formatter
 
 
      #- name: update
