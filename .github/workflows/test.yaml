@@ -25,10 +25,10 @@ jobs:
         yarn add sql-formatter
         npm install sql-formatter
         
-     - name: Test & Build
-       run: | 
-         yarn test
-         yarn build
+     #- name: Test & Build
+     #  run: | 
+     #    yarn test
+     #    yarn build
 
 
 
