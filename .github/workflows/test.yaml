@@ -6,7 +6,7 @@ jobs:
   
     strategy:
        matrix:
-         node-version: [12.x, 14.x, 16.x]
+         node-version: [16.x]
      
      
     steps:
@@ -20,7 +20,7 @@ jobs:
 
      - name: Install
        run: |
-         yarn add sql-formatter
+         yarn add sql-formatter@https://github.com/sql-formatter-org/sql-formatter
          yarn install
         
      #- name: Test & Build
