@@ -20,15 +20,17 @@ jobs:
 
      - name: Install
        run: |
-         yarn add sql-formatter@https://github.com/sql-formatter-org/sql-formatter
-         yarn install
+         npm install sql-formatter
+         
+         
         
      #- name: Test & Build
      #  run: | 
      #    yarn test
      #    yarn build
-     #
+     #   
      #   npm install --global yarn
+     #   npx sql-formatter
      #   yarn install 
      #   yarn add sql-formatter
      #   npm install sql-formatter
@@ -51,8 +53,8 @@ jobs:
      #     zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
      
      
-     - name: Run Yarn Script
-       run: yarn run sql-formatter
+     - name: Run 
+       run: npx sql-formatter
        
             
      - name: Test command
