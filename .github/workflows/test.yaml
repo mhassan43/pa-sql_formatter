@@ -10,11 +10,14 @@ jobs:
          ref: ${{ github.ref }}
          fetch-depth: 0   
 
-     - name: download
-       run: |
-         npm install sql-formatter
-         npx sql-formatter
-         yarn add sql-formatter
+     - name: Install
+       run: yarn install --ignore-scripts
+
+     - name: Test
+       run: yarn test
+
+     - name: Build
+       run: yarn build
 
      #- name: update
      #  run: |
@@ -31,9 +34,10 @@ jobs:
      #     bazelisk build /usr/local/bin/zetasql-formatter/tools/zetasql-formatter:format 
      #     sudo cp bazel-bin/zetasql/tools/zetasql-formatter/format zetasql-formatter
      #     zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
-     - name: Test
-       run: |
-         sql-formatter -h
+     
+     
+     - name: Run command
+       run: sql-formatter -h
          
          
 
