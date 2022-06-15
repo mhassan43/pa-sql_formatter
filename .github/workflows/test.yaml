@@ -23,6 +23,11 @@ jobs:
         yarn install --ignore-scripts
         yarn add sql-formatter
         npm install sql-formatter
+        
+     - name: Test & Build
+       run: | 
+         yarn test
+         yarn build
 
 
 
