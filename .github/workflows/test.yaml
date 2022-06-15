@@ -51,8 +51,13 @@ jobs:
      #     zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
      
      
-     - name: Run command
-       run: yarn run
+     - name: Run Yarn Script
+       run: yarn run sql-formatter
+       
+            
+     - name: Test command
+       run: sql-formatter -h
+       
          
          
 
