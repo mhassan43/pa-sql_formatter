@@ -19,13 +19,12 @@ jobs:
      
 
      - name: Install
-       run: yarn install --ignore-scripts
+       run: |
+        yarn install --ignore-scripts
+        yarn add sql-formatter
+        npm install sql-formatter
 
-     - name: Test
-       run: yarn test
 
-     - name: Build
-       run: yarn build
 
      #- name: update
      #  run: |
