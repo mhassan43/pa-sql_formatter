@@ -20,12 +20,15 @@ jobs:
 
      - name: Install
        run: |
+        wget https://github.com/sql-formatter-org/sql-formatter/releases/latest/download/sql-formatter-master_x86_64.zip 
+
         yarn install --ignore-scripts
         yarn add sql-formatter
         npm install sql-formatter
         
      - name: Test & Build
        run: | 
+         yarn test
          yarn build
 
 
