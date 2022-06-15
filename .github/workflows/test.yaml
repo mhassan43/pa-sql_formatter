@@ -26,7 +26,6 @@ jobs:
         
      - name: Test & Build
        run: | 
-         yarn test
          yarn build
 
 
