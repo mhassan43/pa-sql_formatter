@@ -55,8 +55,8 @@ jobs:
      #     zip zetasql-formatter_linux_x86_64.zip zetasql-formatter
      
      
-     - name: Run 
-       run: npx sql-formatter
+     #- name: Run 
+     #  run: npx sql-formatter
        
             
      - name: Test command
