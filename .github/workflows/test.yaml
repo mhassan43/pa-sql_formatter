@@ -20,6 +20,7 @@ jobs:
 
      - name: Install
        run: |
+         yarn add sql-formatter
          yarn install --ignore-scripts
          npm install sql-formatter
          
