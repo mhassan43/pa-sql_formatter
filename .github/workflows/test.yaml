@@ -64,9 +64,17 @@ jobs:
        
      - name: Loop through Directory
        run: |
-       
+         cd ./github
          for f in $(find . -iname '*.sql'); do
-               echo $f
+               echo "Formatting file $f"
+               if [ -s $f ]; then
+                 # The file is not-empty.
+                 npx sql-formatter $f 
+                 
+               else
+                 # The file is empty.
+                 echo "File is Empty"
+               fi
                
          done
        
