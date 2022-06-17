@@ -62,6 +62,12 @@ jobs:
      - name: Test command
        run: npx sql-formatter -h
        
+     - name: Loop through Directory
+       run: |
+         for f in $(find . -iname '*.sql'); do
+           echo '$f'
+         done
+       
          
          
 
