@@ -65,12 +65,13 @@ jobs:
      - name: Loop through Directory
        run: |
          ls -larth
+         touch tmp.txt
          for f in $(find . -iname '*.sql'); do
                echo "Formatting file $f"
                if [ -s $f ]; then
                  # The file is not-empty.
-                 npx sql-formatter $f > $f
-                 
+                 npx sql-formatter $f > tmp.txt
+                 cp -f tmp.txt $f
                else
                  # The file is empty.
                  echo "File is Empty"
