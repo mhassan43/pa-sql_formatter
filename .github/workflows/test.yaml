@@ -69,11 +69,11 @@ jobs:
         for f in $(find . -iname '*.sql'); do
               echo "Formatting file $f"
               if [ -s $f ]; then
-              # The file is not-empty.
-              echo "-----------" >> tmp.txt
-              npx sql-formatter $f 
-              echo "-----------" >> tmp.txt
-              else
+                # The file is not-empty.
+                echo "-----------" >> tmp.txt
+                npx sql-formatter $f 
+                echo "-----------" >> tmp.txt
+                else
               # The file is empty.
                 echo "File is Empty"
               fi
