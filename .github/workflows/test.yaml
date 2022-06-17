@@ -64,7 +64,7 @@ jobs:
        
      - name: Loop through Directory
        run: |
-         cd ./github
+         ls -larth
          for f in $(find . -iname '*.sql'); do
                echo "Formatting file $f"
                if [ -s $f ]; then
