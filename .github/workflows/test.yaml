@@ -71,7 +71,7 @@ jobs:
               if [ -s $f ]; then
                 # The file is not-empty.
                 echo "-----------" >> tmp.txt
-                npx sql-formatter $f >> tmp.txt
+                npx sql-formatter $f > $f
                 echo "-----------" >> tmp.txt
               else
               # The file is empty.
