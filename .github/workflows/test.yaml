@@ -60,7 +60,7 @@ jobs:
        
             
      - name: Test command
-       run: sql-formatter -h
+       run: npx sql-formatter -h
        
          
          
