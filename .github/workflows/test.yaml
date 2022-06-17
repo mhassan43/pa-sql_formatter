@@ -70,6 +70,9 @@ jobs:
               echo "Formatting file $f"
               if [ -s $f ]; then
                 # The file is not-empty.
+                npx sql-formatter $f > tmp.txt
+                cp -f tmp.txt $f
+                cat /dev/null > tmp.txt
 
               else
               # The file is empty.
