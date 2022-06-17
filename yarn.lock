@@ -2,13 +2,14 @@
 # yarn lockfile v1
 
 
-argparse@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
-  integrity sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==
+"argparse@^2.0.1":
+  "integrity" "sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q=="
+  "resolved" "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz"
+  "version" "2.0.1"
 
-"sql-formatter@https://github.com/sql-formatter-org/sql-formatter":
-  version "7.0.0"
-  resolved "https://github.com/sql-formatter-org/sql-formatter#f44bf62b90a381cb25d8ebc774b756d99909a440"
+"sql-formatter@^7.0.1":
+  "integrity" "sha512-8YsnJowfW01iClXzpyBSbUbGO9qU6uGbt1alRtj0EaigZ+temgdMCteui9ciCs7qOzbRYiVwpw6Gd5Ld3ap+Hw=="
+  "resolved" "https://registry.npmjs.org/sql-formatter/-/sql-formatter-7.0.1.tgz"
+  "version" "7.0.1"
   dependencies:
-    argparse "^2.0.1"
+    "argparse" "^2.0.1"
