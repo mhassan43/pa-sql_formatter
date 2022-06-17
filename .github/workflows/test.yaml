@@ -75,8 +75,10 @@ jobs:
                  # The file is empty.
                  echo "File is Empty"
                fi
-               
+ 
          done
+         
+         cat ./.github/workflows/moved_format.sql
        
          
          
