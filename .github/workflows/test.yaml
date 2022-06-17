@@ -62,23 +62,7 @@ jobs:
      - name: Test command
        run: npx sql-formatter -h
        
-     - name: Loop through Directory
-       run: |
-         ls -larth
-         touch tmp.txt
-         for f in $(find . -iname '*.sql'); do
-               echo "Formatting file $f"
-               if [ -s $f ]; then
-                 # The file is not-empty.
-                 echo "-----------" >> tmp.txt
-                 npx sql-formatter $f 
-                 echo "-----------" >> tmp.txt
-               else
-                 # The file is empty.
-                 echo "File is Empty"
-               fi
  
-         done
                 
          
          
