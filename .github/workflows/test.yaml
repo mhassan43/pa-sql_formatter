@@ -65,7 +65,8 @@ jobs:
      - name: Loop through Directory
        run: |
          for f in $(find . -iname '*.sql'); do
-           echo '$f'
+               echo '$f'
+               
          done
        
          
